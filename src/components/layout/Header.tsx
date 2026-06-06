@@ -3,7 +3,9 @@ import HeaderTitle from "./HeaderTitle";
 export default function Header() {
     return (
         <>
-            <HeaderTitle title='JokeBuzz' />
+            <header>
+                <HeaderTitle title='JokeBuzz' />
+            </header>
         </>
     )
 }
