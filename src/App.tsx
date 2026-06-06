@@ -3,9 +3,13 @@ import { Header } from "./components/layout"
 function App() {
     return (
         <>
-            <header>
+            <nav>
                 <Header />
-            </header>
+            </nav>
+
+            <main>
+                
+            </main>
         </>
     )
 }
