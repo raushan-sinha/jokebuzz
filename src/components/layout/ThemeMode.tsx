@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LuMoon } from "react-icons/lu";
 import { MdOutlineWbSunny } from "react-icons/md";
 
 export default function ThemeMode() {
     const [isDark, setIsDark] = useState<boolean>(false);
+
+    useEffect(() => {
+        document.documentElement.classList.toggle('dark', isDark)
+    }, [isDark]);
 
     return (
         <button aria-label="theme-toggle" className="cursor-pointer" onClick={() => setIsDark(!isDark)}>
