@@ -8,7 +8,7 @@ export default function FavoriteBtn() {
                 Favorites
             </span>
 
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs text-white">
+            <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-red-700 px-1 text-xs text-white">
                 12
             </span>
         </button>
