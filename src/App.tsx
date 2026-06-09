@@ -1,4 +1,5 @@
 import { Header } from "./components/layout"
+import Home from "./pages/Home/Home"
 
 function App() {
     return (
@@ -7,8 +8,8 @@ function App() {
                 <Header />
             </nav>
 
-            <main className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white">
-                <h1 className="p-25">Hello</h1>
+            <main className="min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white p-10">
+                <Home />
             </main>
         </>
     )
