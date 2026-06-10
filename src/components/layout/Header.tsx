@@ -1,4 +1,4 @@
-import FavoriteBtn from "./FavoriteBtn";
+import BlogBtn from "./BlogBtn";
 import HeaderTitle from "./HeaderTitle";
 import ThemeMode from "./ThemeMode";
 
@@ -11,7 +11,7 @@ export default function Header() {
 
                     <div className="flex items-center gap-3">
                         <ThemeMode />
-                        <FavoriteBtn />
+                        <BlogBtn />
                     </div>
                 </div>
             </header>
