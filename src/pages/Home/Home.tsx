@@ -16,7 +16,7 @@ export default function Home() {
         try {
             setLoading(true);
 
-            const apiResponse = await fetch('http://localhost:5000/api/joke-api');
+            const apiResponse = await fetch('https://jokebuzz-backend-1.onrender.com/api/joke-api');
             if (!apiResponse.ok) throw new Error('Failed to fetch Joke API response!');
             const data = await apiResponse.json();
             setJokeData(data);
