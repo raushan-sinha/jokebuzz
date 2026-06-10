@@ -11,24 +11,25 @@ export default function Home() {
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        setLoading(true);
+    // Fetch Joke API getting logic -
+    const fetchJokeData = async () => {
+        try {
+            setLoading(true);
 
-        const fetchJokeData = async () => {
-            try {
-                const apiResponse = await fetch('http://localhost:5000/api/joke-api');
-                if (!apiResponse.ok) throw new Error('Failed to fetch Joke API response!');
-                const data = await apiResponse.json();
-                console.log(data);
-                setJokeData(data);
-            } catch (error) {
-                console.error('Error', error);
-                setError('Network is poor. Please check your connection.')
-            } finally {
-                setLoading(false);
-            }
+            const apiResponse = await fetch('http://localhost:5000/api/joke-api');
+            if (!apiResponse.ok) throw new Error('Failed to fetch Joke API response!');
+            const data = await apiResponse.json();
+            setJokeData(data);
+        } catch (error) {
+            console.error('Error', error);
+            setError('Network is poor. Please check your connection.')
+        } finally {
+            setLoading(false);
         }
+    }
 
+    // Fetch Joke API -
+    useEffect(() => {
         fetchJokeData();
     }, []);
 
@@ -68,6 +69,23 @@ export default function Home() {
                             </p>
                         </blockquote>
                     </footer>
+
+                    <div className=" flex items-center gap-5 mt-6 flex justify-center">
+                        <button
+                            type="button"
+                            onClick={() => setJokeData({ category: '', delivery: '', setup: '' })}
+                            className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-300 hover:border-red-200 hover:bg-red-50 hover:text-red-600 hover:shadow-md active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-red-900 dark:hover:bg-red-950/30 dark:hover:text-red-400 cursor-pointer"
+                        >
+                            Clear Joke
+                        </button>
+                        <button
+                            type="button"
+                            onClick={fetchJokeData}
+                            className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-md active:scale-95 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-indigo-900 dark:hover:bg-indigo-950/30 dark:hover:text-indigo-400 cursor-pointer"
+                        >
+                            Get New Joke
+                        </button>
+                    </div>
                 </article>
             )}
         </>
